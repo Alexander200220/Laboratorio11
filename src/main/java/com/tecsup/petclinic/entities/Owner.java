@@ -7,11 +7,12 @@ import javax.persistence.Id;
 
 @Entity(name = "owners")
 public class Owner {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String first_name;
+
 	private String last_name;
 	private String address;
 	private String city;
@@ -19,7 +20,7 @@ public class Owner {
 	
 	public Owner() {
 	}
-	
+
 	public Owner(long id, String first_name, String last_name, String address, String city, String telephone) {
 		super();
 		this.id = id;
@@ -84,8 +85,12 @@ public class Owner {
 		return telephone;
 	}
 
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public Owner(String first_name, String last_name,  String city) {
+		super();
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.city = city;
+		
 	}
 
 	@Override
@@ -93,6 +98,5 @@ public class Owner {
 		return "Owner [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", address=" + address
 				+ ", city=" + city + ", telephone=" + telephone + "]";
 	}
-
-	
 }
+

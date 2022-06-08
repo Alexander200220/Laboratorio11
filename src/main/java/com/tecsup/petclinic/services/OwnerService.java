@@ -21,4 +21,6 @@ public interface OwnerService {
 	 */
 	
 	Owner findById(long id) throws OwnerNotFoundException;
+
+	Owner update(Owner owner);
 }
