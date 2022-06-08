@@ -7,5 +7,5 @@ public interface OwnerService {
 	
 	Owner create(Owner owner);
 	Owner update(Owner owner);
-	
+	Owner findById(long id) throws OwnerNotFoundException;
 }

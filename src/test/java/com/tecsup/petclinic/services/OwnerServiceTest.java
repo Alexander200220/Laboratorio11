@@ -74,4 +74,19 @@ public class OwnerServiceTest {
 		assertThat(upgradeOwner.getCity(), is(UP_CITY));
 	
 	}
+	@Test 
+	public void testFindOwnerById() {
+		long ID = 1;
+		String FIRST_NAME = "George";
+		Owner owner = null;
+		
+		try {
+			owner = ownerService.findById(ID);
+			
+		}catch(OwnerNotFoundException e ){
+			assertThat(e.getMessage(), false);
+		}
+		logger.info(""+owner);
+		assertThat(owner.getFirst_name(), is(FIRST_NAME));
+	}
 }

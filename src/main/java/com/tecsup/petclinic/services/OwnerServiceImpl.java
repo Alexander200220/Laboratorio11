@@ -27,5 +27,15 @@ public class OwnerServiceImpl implements OwnerService {
 		// TODO Auto-generated method stub
 		return ownerRepository.save(owner);
 	}
+	@Override
+	public Owner findById(long id) throws OwnerNotFoundException {
+		
+		Optional<Owner> owner= ownerRepository.findById(id);
+		
+		if ( !owner.isPresent())
+			throw new OwnerNotFoundException("Registro no encontrado ...");
+		
+		return owner.get();
+	}
 	
 }
