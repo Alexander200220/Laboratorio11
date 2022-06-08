@@ -36,4 +36,42 @@ public class OwnerServiceTest {
 		assertThat(ownerCreated.getCity(), is(CITY));
 	}
 	
+	@Test
+	public void testUpdateOwner() {
+		String FIRST_NAME = "George";
+		String LAST_NAME = "Franklin";
+		String CITY  = "Madison";
+		long create_id = -1;
+		
+		
+		String UP_FIRST_NAME = "George2";
+		String UP_LAST_NAME = "Franklin2";
+		String UP_CITY  = "Madison2";
+		
+		Owner owner = new Owner(FIRST_NAME,LAST_NAME,CITY);
+		
+		
+		logger.info(">" + owner);
+		Owner ownerCreated = ownerService.create(owner);
+		logger.info(">>"+ownerCreated);
+		
+		create_id = ownerCreated.getId();
+		
+		
+		ownerCreated.setFirst_name(UP_FIRST_NAME);
+		ownerCreated.setLast_name(UP_LAST_NAME);
+		ownerCreated.setCity(UP_CITY);
+		
+		
+		Owner upgradeOwner = ownerService.update(ownerCreated);
+		logger.info(">>>>"+ upgradeOwner);
+		
+		//      ACTUAL         EXPECTED
+		assertThat(create_id ,notNullValue());
+		assertThat(upgradeOwner.getId(), is(create_id));
+		assertThat(upgradeOwner.getFirst_name(), is(UP_FIRST_NAME));
+		assertThat(upgradeOwner.getLast_name(), is(UP_LAST_NAME));
+		assertThat(upgradeOwner.getCity(), is(UP_CITY));
+	
+	}
 }

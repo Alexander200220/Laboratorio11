@@ -21,4 +21,11 @@ public class OwnerServiceImpl implements OwnerService {
 		
 		return ownerRepository.save(owner);
 	}
+	
+	@Override
+	public Owner update(Owner owner) {
+		// TODO Auto-generated method stub
+		return ownerRepository.save(owner);
+	}
+	
 }

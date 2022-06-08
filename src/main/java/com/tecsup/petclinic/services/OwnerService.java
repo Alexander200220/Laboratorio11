@@ -6,6 +6,6 @@ import com.tecsup.petclinic.exception.OwnerNotFoundException;
 public interface OwnerService {
 	
 	Owner create(Owner owner);
-	
+	Owner update(Owner owner);
 	
 }
